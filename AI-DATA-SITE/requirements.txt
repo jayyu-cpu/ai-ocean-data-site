@@ -1,25 +1,33 @@
+# Core data & ML
 requests
 pandas
 numpy
 scikit-learn
-psycopg2-binary
-sqlalchemy
 xarray
 netCDF4
 tensorflow
 keras
+
+# Database
+sqlalchemy>=2.0
+psycopg[binary]>=3.3
+
+# API & backend
 fastapi
 uvicorn
 apscheduler
 python-dotenv
-# streamlit  # installed separately to avoid interactive onboarding during pip install
-pydeck
-plotly
 
-# Extras for local/demo runs
+# Visualization
+plotly
+pydeck
+# streamlit  # installed separately to avoid interactive onboarding during pip install
+
+# Geospatial / scientific (optional / local demos)
 geopandas
 shapely
 pyproj
+
+# Utilities
 python-dateutil
 openpyxl
-

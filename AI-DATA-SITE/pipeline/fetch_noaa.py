@@ -77,7 +77,7 @@ def fetch_noaa_crw():
             }
         )
 
-    ds_sst = xr.open_dataset(sst_path)
+    ds_sst = xr.open_dataset(sst_path, engine="h5netcdf")
     df_sst = ds_sst.to_dataframe().reset_index()
 
     # Find sst variable name safely
@@ -90,7 +90,7 @@ def fetch_noaa_crw():
 
     # DHW
     if dhw_path and os.path.exists(dhw_path):
-        ds_dhw = xr.open_dataset(dhw_path)
+        ds_dhw = xr.open_dataset(dhw_path,engine="h5netcdf")
         df_dhw = ds_dhw.to_dataframe().reset_index()
         dhw_col = _find_col(df_dhw, ["dhw", "degree_heating_week"])
         if dhw_col:
@@ -129,7 +129,7 @@ def fetch_noaa_ph():
             }
         )
 
-    ph_ds = xr.open_dataset(ph_path)
+    ph_ds = xr.open_dataset(ph_path,engine="h5netcdf")
     ph_df = ph_ds.to_dataframe().reset_index()
     ph_df = ph_df[["lat", "lon", "ph"]]
     ph_df["date"] = date.today()
